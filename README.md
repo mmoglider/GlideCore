@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/mmoglider/GlideCore.png)](https://travis-ci.org/mmoglider/GlideCore)
+
+
+
 This emulator is based on a version of TrinityCore
 
 GlideCore build Support 5.4.0.17399 - Mist of Pandaria.
