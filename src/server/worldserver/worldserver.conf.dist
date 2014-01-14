@@ -1,5 +1,5 @@
 ################################################
-# OpenEMU 5.4.0 World Server configuration file#
+# GlideCore 5.4.0.17399 World Server configuration file#
 ################################################
 [worldserver]
 
@@ -61,7 +61,7 @@ RealmID = 1
 #    DataDir
 #        Description: Data directory setting.
 #        Important:   DataDir needs to be quoted, as the string might contain space characters.
-#        Example:     "@prefix@/share/openemu"
+#        Example:     "@prefix@/share/glide"
 #        Default:     "."
 
 DataDir = "."
@@ -86,13 +86,13 @@ LogsDir = "logs"
 #                                                                 section my.ini)
 #                     ".;/path/to/unix_socket;username;password;database" - (use Unix sockets on
 #                                                                           Unix/Linux)
-#        Default:     "127.0.0.1;3306;openemu;openemu;auth"       - (LoginDatabaseInfo)
-#                     "127.0.0.1;3306;openemu;openemu;world"      - (WorldDatabaseInfo)
-#                     "127.0.0.1;3306;openemu;openemu;characters" - (CharacterDatabaseInfo)
+#        Default:     "127.0.0.1;3306;glide;glide;auth"       - (LoginDatabaseInfo)
+#                     "127.0.0.1;3306;glide;glide;world"      - (WorldDatabaseInfo)
+#                     "127.0.0.1;3306;glide;glide;characters" - (CharacterDatabaseInfo)
 
-LoginDatabaseInfo     = "127.0.0.1;3306;openemu;openemu;auth"
-WorldDatabaseInfo     = "127.0.0.1;3306;openemu;openemu;world"
-CharacterDatabaseInfo = "127.0.0.1;3306;openemu;openemu;characters"
+LoginDatabaseInfo     = "127.0.0.1;3306;glide;glide;auth"
+WorldDatabaseInfo     = "127.0.0.1;3306;glide;glide;world"
+CharacterDatabaseInfo = "127.0.0.1;3306;glide;glide;characters"
 
 #
 #    LoginDatabase.WorkerThreads
