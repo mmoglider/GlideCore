@@ -39,8 +39,10 @@ class AreaTrigger : public WorldObject, public GridObject<AreaTrigger>
         int32 GetDuration() const { return _duration; }
         void SetDuration(int32 newDuration) { _duration = newDuration; }
         void Delay(int32 delaytime) { SetDuration(GetDuration() - delaytime); }
+		float GetVisualRadius() const { return m_visualRadius; }
 
     protected:
         int32 _duration;
+		float m_visualRadius;
 };
 #endif
