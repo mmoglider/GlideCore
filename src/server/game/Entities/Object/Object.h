@@ -468,6 +468,10 @@ struct MovementInfo
     Position pos;
     uint32 time;
 
+	uint32 fallTime;
+
+	float zspeed, cosAngle, sinAngle, xyspeed;
+
     // transport
     struct TransportInfo
     {
