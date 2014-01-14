@@ -127,16 +127,8 @@ int Master::Run()
     TC_LOG_INFO(LOG_FILTER_WORLDSERVER, "%s (worldserver-daemon)", _FULLVERSION);
     TC_LOG_INFO(LOG_FILTER_WORLDSERVER, "<Ctrl-C> to stop.\n");
 
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, "  _____   _____   _____   __   _        _____       ___  ___   _   _");
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, " /  _  \\ |  _  \\ | ____| |  \\ | |      | ____|     /   |/   | | | | |");
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, " | | | | | |_| | | |__   |   \\| |      | |__      / /|   /| | | | | |");
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, " | | | | |  ___/ |  __|  | |\\   |      |  __|    / / |__/ | | | | | |");
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, " | |_| | | |     | |___  | | \\  |      | |___   / /       | | | |_| |");
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, " \\_____/ |_|     |_____| |_|  \\_|      |_____| /_/        |_| \\_____/");
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, "");
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, "                                                            C O R E  ");
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, "http://www.openemulator.com/                   ");
-    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, "");
+    TC_LOG_INFO(LOG_FILTER_WORLDSERVER, " GlideCore a 5.4.0.17399 EMU");
+    
 
     /// worldserver PID file creation
     std::string pidfile = sConfigMgr->GetStringDefault("PidFile", "");
