@@ -108,7 +108,7 @@ MovementStatusElements const MovementFallLand[] = // 5.4.0 17399
 	MSEPositionZ,              // 44
 	MSEPositionY,              // 40
 	MSEPositionX,              // 36
-	MSECounterCount,           // 152
+	MSEOneBit,                 // 152
 	MSEHasGuidByte6,           // 22
 	MSEZeroBit,                // 172
 	MSEHasGuidByte7,           // 23
