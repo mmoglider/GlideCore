@@ -15494,8 +15494,7 @@ void Unit::WriteMovementInfo(WorldPacket& data, Movement::ExtraMovementStatusEle
                                         // is for MSG_MOVE_LAND, which is handled above, in player case
         hasSplineElevation = HasUnitMovementFlag(MOVEMENTFLAG_SPLINE_ELEVATION);
     }
-
-    MovementStatusElements const* sequence = GetMovementStatusElementsSequence(data.GetOpcode());
+	    
     if (!sequence)
     {
         TC_LOG_ERROR(LOG_FILTER_NETWORKIO, "Unit::WriteMovementInfo: No movement sequence found for opcode %s", GetOpcodeNameForLogging(data.GetOpcode()).c_str());
