@@ -27443,13 +27443,20 @@ void Player::ReadMovementInfo(WorldPacket& data, MovementInfo* mi, Movement::Ext
         return;
     }
 
-    bool hasMovementFlags = false;
+   bool hasMovementFlags = false;
     bool hasMovementFlags2 = false;
     bool hasTimestamp = false;
     bool hasOrientation = false;
     bool hasTransportData = false;
-    bool isAlive = false;
-    uint32 counter = 0;
+    bool hasTransportTime2 = false;
+    bool hasTransportTime3 = false;
+    bool hasPitch = false;
+    bool hasFallData = false;
+    bool hasFallDirection = false;
+    bool hasSplineElevation = false;
+    bool hasUnkTime = false;
+    uint32 counterCount = 0u;
+
     ObjectGuid guid;
     ObjectGuid tguid;
 
@@ -27518,24 +27525,24 @@ void Player::ReadMovementInfo(WorldPacket& data, MovementInfo* mi, Movement::Ext
                 break;
             case MSEHasTransportTime2:
                 if (hasTransportData)
-                    mi->bits.hasTransportTime2 = data.ReadBit();
+                    hasTransportTime2 = data.ReadBit();
                 break;
             case MSEHasTransportTime3:
                 if (hasTransportData)
-                    mi->bits.hasTransportTime3 = data.ReadBit();
+                    hasTransportTime3 = data.ReadBit();
                 break;
             case MSEHasPitch:
-                mi->bits.hasPitch = !data.ReadBit();
+                hasPitch = !data.ReadBit();
                 break;
             case MSEHasFallData:
-                mi->bits.hasFallData = data.ReadBit();
+                hasFallData = data.ReadBit();
                 break;
             case MSEHasFallDirection:
-                if (mi->bits.hasFallData)
-                    mi->bits.hasFallDirection = data.ReadBit();
+                if (hasFallData)
+                    hasFallDirection = data.ReadBit();
                 break;
             case MSEHasSplineElevation:
-                mi->bits.hasSplineElevation = !data.ReadBit();
+                hasSplineElevation = !data.ReadBit();
                 break;
             case MSEHasSpline:
                 data.ReadBit();
@@ -27590,54 +27597,54 @@ void Player::ReadMovementInfo(WorldPacket& data, MovementInfo* mi, Movement::Ext
                     data >> mi->transport.time;
                 break;
             case MSETransportTime2:
-                if (hasTransportData && mi->bits.hasTransportTime2)
+                if (hasTransportData && hasTransportTime2)
                     data >> mi->transport.time2;
                 break;
             case MSETransportTime3:
-                if (hasTransportData && mi->bits.hasTransportTime3)
+                if (hasTransportData && hasTransportTime3)
                     data >> mi->transport.time3;
                 break;
             case MSEPitch:
-                if (mi->bits.hasPitch)
-                    data >> mi->pitch;
+                if (hasPitch)
+                    mi->pitch = G3D::wrap(data.read<float>(), float(-M_PI), float(M_PI));
                 break;
             case MSEFallTime:
-                if (mi->bits.hasFallData)
+                if (hasFallData)
                     data >> mi->jump.fallTime;
                 break;
             case MSEFallVerticalSpeed:
-                if (mi->bits.hasFallData)
+                if (hasFallData)
                     data >> mi->jump.zspeed;
                 break;
             case MSEFallCosAngle:
-                if (mi->bits.hasFallData && mi->bits.hasFallDirection)
+                if (hasFallData && hasFallDirection)
                     data >> mi->jump.cosAngle;
                 break;
             case MSEFallSinAngle:
-                if (mi->bits.hasFallData && mi->bits.hasFallDirection)
+                if (hasFallData && hasFallDirection)
                     data >> mi->jump.sinAngle;
                 break;
             case MSEFallHorizontalSpeed:
-                if (mi->bits.hasFallData && mi->bits.hasFallDirection)
+                if (hasFallData && hasFallDirection)
                     data >> mi->jump.xyspeed;
                 break;
             case MSESplineElevation:
-                if (mi->bits.hasSplineElevation)
+                if (hasSplineElevation)
                     data >> mi->splineElevation;
                 break;
-            case MSEHasCounter:
-                counter = data.ReadBits(22);
+            case MSECounterCount:
+                counterCount = data.ReadBits(22);
                 break;
             case MSECounter:
-                for (uint32 j = 0; j < counter; ++j)
+                for (int i = 0; i != counterCount; i++)
                     data.read_skip<uint32>();   /// @TODO: Maybe compare it with m_movementCounter to verify that packets are sent & received in order?
                 break;
-            case MSEIsAlive:
-                isAlive = !data.ReadBit();
+            case MSEHasUnkTime:
+                hasUnkTime = !data.ReadBit();
                 break;
-            case MSEAlive:
-                if (isAlive)
-                    data >> mi->time;
+            case MSEUnkTime:
+                if (hasUnkTime)
+                    data.read_skip<uint32>();
                 break;
             case MSEZeroBit:
             case MSEOneBit:

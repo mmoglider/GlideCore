@@ -54,7 +54,7 @@ MovementStatusElements const PlayerMove[] =
     MSEHasFallData,
     MSEMovementFlags,
     MSEHasFallDirection,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasGuidByte2,
     MSEHasGuidByte3,
     MSEHasGuidByte6,
@@ -77,7 +77,7 @@ MovementStatusElements const PlayerMove[] =
     MSETransportGuidByte5,
 
     MSEGuidByte6,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
 
     MSEFallVerticalSpeed,
     MSEFallHorizontalSpeed,
@@ -193,7 +193,7 @@ MovementStatusElements const MovementHeartBeat[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -259,7 +259,7 @@ MovementStatusElements const MovementHeartBeat[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -279,7 +279,7 @@ MovementStatusElements const MovementJump[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -345,7 +345,7 @@ MovementStatusElements const MovementJump[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -365,7 +365,7 @@ MovementStatusElements const MovementSetFacing[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -431,7 +431,7 @@ MovementStatusElements const MovementSetFacing[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -451,7 +451,7 @@ MovementStatusElements const MovementSetPitch[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -517,7 +517,7 @@ MovementStatusElements const MovementSetPitch[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -537,7 +537,7 @@ MovementStatusElements const MovementStartBackward[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -603,7 +603,7 @@ MovementStatusElements const MovementStartBackward[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -623,7 +623,7 @@ MovementStatusElements const MovementStartForward[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -689,7 +689,7 @@ MovementStatusElements const MovementStartForward[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -709,7 +709,7 @@ MovementStatusElements const MovementStartStrafeLeft[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -775,7 +775,7 @@ MovementStatusElements const MovementStartStrafeLeft[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -795,7 +795,7 @@ MovementStatusElements const MovementStartStrafeRight[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -861,7 +861,7 @@ MovementStatusElements const MovementStartStrafeRight[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -881,7 +881,7 @@ MovementStatusElements const MovementStartTurnLeft[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -947,7 +947,7 @@ MovementStatusElements const MovementStartTurnLeft[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -967,7 +967,7 @@ MovementStatusElements const MovementStartTurnRight[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1033,7 +1033,7 @@ MovementStatusElements const MovementStartTurnRight[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1053,7 +1053,7 @@ MovementStatusElements const MovementStop[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1119,7 +1119,7 @@ MovementStatusElements const MovementStop[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1139,7 +1139,7 @@ MovementStatusElements const MovementStopStrafe[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1205,7 +1205,7 @@ MovementStatusElements const MovementStopStrafe[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1225,7 +1225,7 @@ MovementStatusElements const MovementStopTurn[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1291,7 +1291,7 @@ MovementStatusElements const MovementStopTurn[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1311,7 +1311,7 @@ MovementStatusElements const MovementStartAscend[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1377,7 +1377,7 @@ MovementStatusElements const MovementStartAscend[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1397,7 +1397,7 @@ MovementStatusElements const MovementStartDescend[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1463,7 +1463,7 @@ MovementStatusElements const MovementStartDescend[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1483,7 +1483,7 @@ MovementStatusElements const MovementStartSwim[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1549,7 +1549,7 @@ MovementStatusElements const MovementStartSwim[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1569,7 +1569,7 @@ MovementStatusElements const MovementStopSwim[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1635,7 +1635,7 @@ MovementStatusElements const MovementStopSwim[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1655,7 +1655,7 @@ MovementStatusElements const MovementStopAscend[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1721,7 +1721,7 @@ MovementStatusElements const MovementStopAscend[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1741,7 +1741,7 @@ MovementStatusElements const MovementStopPitch[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1807,7 +1807,7 @@ MovementStatusElements const MovementStopPitch[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1827,7 +1827,7 @@ MovementStatusElements const MovementStartPitchDown[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1893,7 +1893,7 @@ MovementStatusElements const MovementStartPitchDown[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 
@@ -1913,7 +1913,7 @@ MovementStatusElements const MovementStartPitchUp[] =
     MSEZeroBit, //bit9C
     MSEZeroBit, //bit85
     MSEHasGuidByte7,
-    MSEIsAlive,
+    MSEHasUnkTime,
     MSEHasFallData,
     MSEHasMovementFlags2,
     MSEHasMovementFlags,
@@ -1979,7 +1979,7 @@ MovementStatusElements const MovementStartPitchUp[] =
 
     MSETimestamp,
     MSEPitch,
-    MSEIsAlive, 
+    MSEHasUnkTime, 
     MSEEnd,
 };
 

@@ -15456,7 +15456,7 @@ void Unit::NearTeleportTo(float x, float y, float z, float orientation, bool cas
 
 void Unit::WriteMovementInfo(WorldPacket& data, Movement::ExtraMovementStatusElement* extras /*= NULL*/)
 {
-    MovementInfo const& mi = m_movementInfo;
+   MovementInfo const& mi = m_movementInfo;
 
     bool hasMovementFlags = GetUnitMovementFlags() != 0;
     bool hasMovementFlags2 = GetExtraUnitMovementFlags() != 0;
@@ -15465,14 +15465,14 @@ void Unit::WriteMovementInfo(WorldPacket& data, Movement::ExtraMovementStatusEle
     bool hasTransportData = GetTransGUID() != 0;
     bool hasSpline = IsSplineEnabled();
 
-    bool hasTransportTime2;
-    bool hasTransportTime3;
-    bool hasPitch;
-    bool hasFallData;
-    bool hasFallDirection;
-    bool hasSplineElevation;
-    bool isAlive = false;
-    uint32 counter = 0;
+    bool hasTransportTime2 = hasTransportData && m_movementInfo.transport.time2 != 0;
+    bool hasTransportTime3 = false;
+    bool hasPitch = HasUnitMovementFlag(MovementFlags(MOVEMENTFLAG_SWIMMING | MOVEMENTFLAG_FLYING)) || HasExtraUnitMovementFlag(MOVEMENTFLAG2_ALWAYS_ALLOW_PITCHING);
+    bool hasFallDirection = HasUnitMovementFlag(MOVEMENTFLAG_FALLING);
+    bool hasFallData = hasFallDirection || m_movementInfo.jump.fallTime != 0;
+    bool hasSplineElevation = HasUnitMovementFlag(MOVEMENTFLAG_SPLINE_ELEVATION);
+
+    MovementStatusElements const* sequence = GetMovementStatusElementsSequence(data.GetOpcode());
     if (GetTypeId() == TYPEID_PLAYER)
     {
         hasTimestamp = m_movementInfo.time != 0;
@@ -15677,21 +15677,11 @@ void Unit::WriteMovementInfo(WorldPacket& data, Movement::ExtraMovementStatusEle
             if (hasSplineElevation)
                 data << mi.splineElevation;
             break;
-        case MSEHasCounter:
+        case MSECounterCount:
             data.WriteBits(0, 22);
             break;
         case MSECounter:
-            for (uint32 b = 0; b < counter; ++b)
-                data << uint32(0); //int32
-            break;
-            //data << m_movementCounter++;
-            //break;
-        case MSEIsAlive:
-            data.WriteBit(isAlive);
-            break;
-        case MSEAlive:
-            if (isAlive)
-                data << mi.time;
+            data << m_movementCounter++;
             break;
         case MSEZeroBit:
             data.WriteBit(0);
@@ -15701,6 +15691,9 @@ void Unit::WriteMovementInfo(WorldPacket& data, Movement::ExtraMovementStatusEle
             break;
         case MSEExtraElement:
             extras->WriteNextElement(data);
+            break;
+        case MSEUintCount:
+            data << uint32(0);
             break;
         default:
             ASSERT(Movement::PrintInvalidSequenceElement(element, __FUNCTION__));
